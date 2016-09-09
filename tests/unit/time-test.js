@@ -1,4 +1,4 @@
-import Time from 'busy-app/utils/time';
+import Time from 'busy-app/time';
 import { module, test } from 'qunit';
 import moment from 'moment';
 

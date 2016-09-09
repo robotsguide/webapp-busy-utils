@@ -1,10 +1,10 @@
-import localStorage from 'busy-app/utils/local-storage';
+import loc from 'busy-app/loc';
 import { module, test } from 'qunit';
 
-module('Unit | Utility | local storage');
+module('Unit | Utility | loc');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let result = localStorage;
+  let result = loc('Test');
   assert.ok(result);
 });

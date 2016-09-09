@@ -1,4 +1,4 @@
-import crypto from 'dummy/utils/crypto';
+import crypto from 'dummy/crypto';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | crypto');

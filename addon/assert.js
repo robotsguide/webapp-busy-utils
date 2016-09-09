@@ -4,7 +4,7 @@
  */
 import Ember from 'ember';
 import DS from 'ember-data';
-import UUID from './utils/uuid';
+import UUID from './uuid';
 import moment from 'moment';
 
 /***/
