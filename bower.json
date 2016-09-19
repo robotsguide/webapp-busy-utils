@@ -2,7 +2,6 @@
   "name": "busy-utils",
   "dependencies": {
     "ember": "~2.8.0",
-    "ember-cli-shims": "0.1.1",
-    "crypto-js": "3.1.5"
+    "ember-cli-shims": "0.1.1"
   }
 }

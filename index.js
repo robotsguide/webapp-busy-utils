@@ -1,6 +1,10 @@
 /* jshint node: true */
 'use strict';
 
+var Funnel = require('broccoli-funnel');
+var mergeTrees = require('broccoli-merge-trees');
+var path = require('path');
+
 module.exports = {
   name: 'busy-utils',
 
@@ -13,5 +17,38 @@ module.exports = {
 		}
 
 		this.app = app;
+		this.importBrowserDeps(app);
   },
+
+  importBrowserDeps(app) {
+    if(app.import) {
+		  var vendor = this.treePaths.vendor;
+      app.import(vendor + '/crypto-js/crypto-js.js', {prepend: true});
+      app.import(vendor + '/node-uuid/uuid.js', {prepend: true});
+    }
+	},
+
+	treeForVendor(vendorTree) {
+		var trees = [];
+
+		if (vendorTree) {
+			trees.push(vendorTree);
+		}
+
+		var cryptoPath = path.dirname(require.resolve('crypto-js'));
+
+		trees.push(new Funnel(cryptoPath, {
+			destDir: 'crypto-js',
+			include: [new RegExp(/\.js$/)]
+		}));
+
+    var nodeUUID = path.dirname(require.resolve('node-uuid'));
+
+		trees.push(new Funnel(nodeUUID, {
+			destDir: 'node-uuid',
+			include: [new RegExp(/\.js$/)]
+		}));
+
+		return mergeTrees(trees);
+	}
 };

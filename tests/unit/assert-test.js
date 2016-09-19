@@ -1,7 +1,7 @@
 import assertTools from 'busy-utils/assert';
 import { module, test } from 'qunit';
 import moment from 'moment';
-import UUID from 'busy-pusher/uuid';
+import UUID from 'busy-utils/uuid';
 import DS from 'ember-data';
 
 module('Unit | Utility | Assert');

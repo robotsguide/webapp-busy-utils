@@ -106,7 +106,7 @@ Assert.reopenClass({
 	isInteger(value) {
 		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isInteger>', !Ember.isNone(value));
 
-		assert(`Type error [${typeof value}] expected an integer`, typeof value === 'number' && Number.isInteger(value));
+		assert(`Type error [${typeof value}] expected an integer`, typeof value === 'number' && parseInt(value, 10) === value);
 		return this;
 	},
 
