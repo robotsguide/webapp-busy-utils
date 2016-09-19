@@ -1,12 +1,12 @@
-# Busy-utils
+[![Build Status](https://travis-ci.org/busybusy/webapp-busy-utils.svg?branch=master)](https://travis-ci.org/busybusy/webapp-busy-utils)
+
+# busy utils
 
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `ember install busy-utils`
 
 ## Running
 
