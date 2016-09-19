@@ -1,4 +1,4 @@
-import assertTools from 'busy-app/assert';
+import assertTools from 'busy-utils/assert';
 import { module, test } from 'qunit';
 import moment from 'moment';
 import UUID from 'busy-pusher/uuid';

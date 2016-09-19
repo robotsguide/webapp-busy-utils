@@ -1,4 +1,4 @@
-import uuid from 'busy-app/uuid';
+import uuid from 'busy-utils/uuid';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | UUID');

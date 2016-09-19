@@ -1,4 +1,4 @@
-import localStorage from 'busy-app/local-storage';
+import localStorage from 'busy-utils/local-storage';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | local storage');

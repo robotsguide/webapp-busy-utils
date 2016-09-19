@@ -1,4 +1,4 @@
-import loc from 'busy-app/loc';
+import loc from 'busy-utils/loc';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | loc');
