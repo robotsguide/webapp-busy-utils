@@ -25,6 +25,7 @@ module.exports = {
 		  var vendor = this.treePaths.vendor;
       app.import(vendor + '/crypto-js/crypto-js.js', {prepend: true});
       app.import(vendor + '/node-uuid/uuid.js', {prepend: true});
+      app.import('vendor/shims.js');
     }
 	},
 

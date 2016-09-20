@@ -3,6 +3,7 @@
  *
  */
 import Ember from 'ember';
+import uuid from 'node-uuid';
 
 /***/
 const UUID = Ember.Object.extend();
@@ -23,7 +24,7 @@ UUID.reopenClass({
 	 */
 	generate() {
 		// gennerate the uuid
-		const id = window.uuid.v4();
+		const id = uuid.v4(...arguments);
 
 		// assert the uuid created a valid uuid
 		Ember.assert('Generate created an invalid UUID', this.isValid(id));
