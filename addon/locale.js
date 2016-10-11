@@ -62,7 +62,6 @@ Locale.reopenClass({
     assert.isString(locale);
 
     const _formats = Ember.get(__locales, locale);
-    console.log(locale, _formats);
     if (!Ember.isNone(_formats)) {
       const format = Ember.get(_formats, str);
       if (!Ember.isNone(format)) {
