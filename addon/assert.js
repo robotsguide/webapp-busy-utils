@@ -202,7 +202,7 @@ Assert.reopenClass({
 	isModel(value) {
 		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isModel>', !Ember.isNone(value));
 
-		if (!(value instanceof DS.Model) && value.get) {
+		if (!(value instanceof DS.Model) && typeof value === 'object' && value.get) {
 			// if DS.PromiseObject then get the content model from the object and check it.
 			value = !Ember.isNone(value.get('content')) ? value.get('content') : value;
 
