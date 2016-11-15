@@ -210,12 +210,20 @@ Time.reopenClass({
 	 * @param padHours {boolean} defaults to false
 	 * @param showSeconds {boolean} add seconds to the end
 	 * @param longFormat {boolean} shows XX hrs XX mins format
+	 * @param format {number} 10 for 00:00 and 20 for 0.00 formats
 	 * @return {object} An object with the hours, minutes, and seconds
 	 */
-	convertSecondsString(seconds, padHours, showSeconds, longFormat) {
+	convertSecondsString(seconds, padHours, showSeconds, longFormat, format) {
 		let timeStr = '';
-		let format = localStorage.getWithDefault('format-hours-type', 10);
-		format = parseInt(format, 10);
+
+		// format can be passed in to override the users ability to change
+		// the format.
+		if (Ember.isNone(format)) {
+			format = localStorage.getWithDefault('format-hours-type', 10);
+			format = parseInt(format, 10);
+		}
+
+		Ember.assert('format must be a number in convertSecondsString', typeof format === 'number');
 
 		const time = this.convertSeconds(seconds, padHours);
 
