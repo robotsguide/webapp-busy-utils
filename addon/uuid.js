@@ -3,7 +3,7 @@
  *
  */
 import Ember from 'ember';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 
 /***/
 const UUID = Ember.Object.extend();
