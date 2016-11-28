@@ -6,6 +6,8 @@ import Ember from 'ember';
 import moment from 'moment';
 import loc from './loc';
 import localStorage from './local-storage';
+import locale from './locale';
+import Assert from './assert';
 
 /***/
 const zoneList = {
@@ -114,61 +116,63 @@ const Time = Ember.Object.extend();
 Time.reopenClass({
 	hoursFormat: null,
 
-	timezone(timestamp)
-	{
-		if(timestamp !== undefined)
-		{
+	timezone(timestamp) {
+		if (timestamp !== undefined) {
 			return moment(timestamp*1000).subtract(moment(timestamp*1000).utcOffset(), 'minutes').utcOffset()*60;
-		}
-		else
-		{
+		} else {
 			return moment().utcOffset()*60;
 		}
 	},
 
-	timestamp(timestamp)
-	{
+	timestamp(timestamp) {
 		return this.date(timestamp).unix();
 	},
 
-	now()
-	{
+	locale() {
+		return moment.locale();
+	},
+
+	timeFormat(timestamp, formatStr) {
+		Assert.isNumber(timestamp);
+		Assert.isString(formatStr);
+
+		return this.dateFormat(this.date(timestamp), formatStr);
+	},
+
+	dateFormat(date, formatStr) {
+		Assert.isMoment(date);
+		Assert.isString(formatStr);
+
+		const str = locale.format(formatStr, this.locale());
+		return date.format(str);
+	},
+
+	now() {
 		return this.date();
 	},
 
-	utcTimestamp()
-	{
-		var time = this.timestamp();
-
+	utcTimestamp() {
+		const time = this.timestamp();
 		return time - this.timezone(time);
 	},
 
-	date(timestamp)
-	{
-		if(timestamp !== undefined)
-		{
+	date(timestamp) {
+		if (timestamp !== undefined) {
 			return moment.utc(timestamp*1000);
-		}
-		else
-		{
+		} else {
 			return moment.utc().add(this.timezone(), 'seconds');
 		}
 	},
 
-	isDST(timestamp)
-	{
-		if(timestamp !== undefined)
-		{
+	isDST(timestamp) {
+		if (timestamp !== undefined) {
 			return moment(timestamp*1000).subtract(moment(timestamp*1000).utcOffset(), 'minutes').isDST();
-		}
-		else
-		{
+		} else {
 			return moment().isDST();
 		}
 	},
 
-	nistTimestamp()
-	{
+	nistTimestamp() {
 		return window.__NIST.timestamp();
 	},
 
