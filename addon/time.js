@@ -132,6 +132,16 @@ Time.reopenClass({
 		return moment.locale();
 	},
 
+	/**
+	 * Formats time using the locale.format
+	 *
+	 * @public
+	 * @static
+	 * @method timeFormat
+	 * @param timestamp {number}
+	 * @param formatStr {string}
+	 * @return {string}
+	 */
 	timeFormat(timestamp, formatStr) {
 		Assert.isNumber(timestamp);
 		Assert.isString(formatStr);
