@@ -4,7 +4,7 @@
  */
 import Assert from './assert';
 import Browser from './browser';
-import Crypto from './crypto';
+import Hash from './hash';
 import Time from './time';
 import UUID from './uuid';
 import loc from './loc';
@@ -15,7 +15,7 @@ import LocalStorage from './local-storage';
 export {
 	Assert,
 	Browser,
-	Crypto,
+	Hash,
 	loc,
 	LocalStorage,
 	Locale,
