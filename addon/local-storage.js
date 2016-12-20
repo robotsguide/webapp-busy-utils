@@ -2,12 +2,13 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
+import EmberObject from 'ember-object';
+import { isNone } from 'ember-utils';
 import assert from './assert';
 
 /***/
 const _localStorage = window.localStorage;
-const LocalStorage = Ember.Object.extend();
+const LocalStorage = EmberObject.extend();
 
 /**
  * `Util/LocalStorage`
@@ -81,7 +82,7 @@ LocalStorage.reopenClass({
         const storeValue = this.getProperty(key);
 
 		// if returned value is null or undefined then return the defaultValue provided.
-		return !Ember.isNone(storeValue) ? storeValue : defaultValue;
+		return !isNone(storeValue) ? storeValue : defaultValue;
     },
 
 	/**
@@ -100,7 +101,7 @@ LocalStorage.reopenClass({
 		assert.isString(key);
 
 		// return true if value is not null or undefined.
-		return !Ember.isNone(this.getProperty(key));
+		return !isNone(this.getProperty(key));
 	},
 
 	/**

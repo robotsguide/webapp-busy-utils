@@ -2,7 +2,12 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
+import EmberObject from 'ember-object';
+import { isNone } from 'ember-utils';
+import { assert } from 'ember-metal/utils';
+import get from 'ember-metal/get';
+import set from 'ember-metal/set';
+
 import moment from 'moment';
 import loc from './loc';
 import localStorage from './local-storage';
@@ -102,7 +107,7 @@ const zoneList = {
 	"46800": 'NZDT', // New Zealand Daylight Saving TimeEntryJulJul 14 2015 07:46:59GMTGMT+13:00
 };
 
-const Time = Ember.Object.extend();
+const Time = EmberObject.extend();
 
 /**
  * `Util/Time`
@@ -232,12 +237,12 @@ Time.reopenClass({
 
 		// format can be passed in to override the users ability to change
 		// the format.
-		if (Ember.isNone(format)) {
+		if (isNone(format)) {
 			format = localStorage.getWithDefault('format-hours-type', 10);
 			format = parseInt(format, 10);
 		}
 
-		Ember.assert('format must be a number in convertSecondsString', typeof format === 'number');
+		assert('format must be a number in convertSecondsString', typeof format === 'number');
 
 		const time = this.convertSeconds(seconds, padHours);
 
@@ -296,7 +301,7 @@ Time.reopenClass({
 	 * @return {void}
 	 */
 	setHoursFormat(type) {
-		Ember.assert('setHoursFormat only accepts a 10 for standard format or 20 for decimal format', type === 10 || type === 20);
+		assert('setHoursFormat only accepts a 10 for standard format or 20 for decimal format', type === 10 || type === 20);
 
 		this.set('hoursFormat', type);
 		localStorage.setProperty('format-hours-type', type);
@@ -304,7 +309,7 @@ Time.reopenClass({
 
 	getHoursFormat() {
 		let type = localStorage.getProperty('format-hours-type');
-		if (Ember.isNone(type)) {
+		if (isNone(type)) {
 			type = 10;
 		}
 		this.set('hoursFormat', type);
@@ -312,12 +317,12 @@ Time.reopenClass({
 	},
 
 	set(key, property) {
-		Ember.set(this, key, property);
+		set(this, key, property);
 		return this;
 	},
 
 	get(key) {
-		return Ember.get(this, key);
+		return get(this, key);
 	}
 });
 

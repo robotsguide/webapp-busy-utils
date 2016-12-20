@@ -2,11 +2,11 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
+import EmberObject from 'ember-object';
 import assert from './assert';
 
 /***/
-const browserInfo = Ember.Object.extend();
+const browserInfo = EmberObject.extend();
 
 /**
  * Helper method to determine the broser version.

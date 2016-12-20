@@ -2,8 +2,11 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
-import DS from 'ember-data';
+import EmberObject from 'ember-object';
+import { assert } from 'ember-metal/utils';
+import { typeOf, isNone } from 'ember-utils';
+import { isEmberArray } from 'ember-array/utils';
+import Model from 'ember-data/model';
 import UUID from './uuid';
 import moment from 'moment';
 
@@ -19,16 +22,16 @@ function throwAssert(message, depth) {
 	const err = new Error();
 	const func = err.stack.split('at')[depth];
 
-	Ember.assert(`${message} in${func}`, false);
+	assert(`${message} in${func}`, false);
 }
 
-function assert(message, test, depth=4) {
+function assertFunc(message, test, depth=4) {
 	if (!assertTest(test)) {
 		throwAssert(message, depth);
 	}
 }
 
-const Assert = Ember.Object.extend();
+const Assert = EmberObject.extend();
 
 /**
  * `Util/Assert`
@@ -50,14 +53,14 @@ Assert.reopenClass({
 	 * @param [equal=false] {boolean} false if at most this many args and true if exactly this many args.
 	 */
 	funcNumArgs(args, argCount, equal=false) {
-		Ember.assert('args must be an array in <utils::assert::funcNumArgs>', Ember.isArray(args));
-		Ember.assert('argCount must be a number in <utils::assert::funcNumArgs>', Ember.typeOf(argCount) === 'number');
-		Ember.assert('equal must be a boolean in <utils::assert::funcNumArgs>', Ember.typeOf(equal) === 'boolean');
+		assert('args must be an array in <utils::assert::funcNumArgs>', isEmberArray(args));
+		assert('argCount must be a number in <utils::assert::funcNumArgs>', typeOf(argCount) === 'number');
+		assert('equal must be a boolean in <utils::assert::funcNumArgs>', typeOf(equal) === 'boolean');
 
 		if(equal) {
-			assert(`Function arguments must be equal to ${argCount}`, args.length === argCount);
+			assertFunc(`Function arguments must be equal to ${argCount}`, args.length === argCount);
 		} else {
-			assert(`Function arguments must be less then or equal to ${argCount}`, args.length <= argCount);
+			assertFunc(`Function arguments must be less then or equal to ${argCount}`, args.length <= argCount);
 		}
 		return this;
 	},
@@ -72,9 +75,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isString(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isString>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isString>', !isNone(value));
 
-		assert(`Type error [${typeof value}] expected a string`, typeof value === 'string');
+		assertFunc(`Type error [${typeof value}] expected a string`, typeof value === 'string');
 		return this;
 	},
 
@@ -88,9 +91,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isNumber(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isNumber>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isNumber>', !isNone(value));
 
-		assert(`Type error [${typeof value}] expected a number`, typeof value === 'number');
+		assertFunc(`Type error [${typeof value}] expected a number`, typeof value === 'number');
 		return this;
 	},
 
@@ -104,9 +107,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isInteger(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isInteger>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isInteger>', !isNone(value));
 
-		assert(`Type error [${typeof value}] expected an integer`, typeof value === 'number' && parseInt(value, 10) === value);
+		assertFunc(`Type error [${typeof value}] expected an integer`, typeof value === 'number' && parseInt(value, 10) === value);
 		return this;
 	},
 
@@ -120,9 +123,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isBoolean(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isBoolean>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isBoolean>', !isNone(value));
 
-		assert(`Type error [${typeof value}] expected a boolean`, typeof value === 'boolean');
+		assertFunc(`Type error [${typeof value}] expected a boolean`, typeof value === 'boolean');
 		return this;
 	},
 
@@ -136,9 +139,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isArray(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isArray>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isArray>', !isNone(value));
 
-		assert(`Type error [${Ember.typeOf(value)}] expected an array`, Ember.isArray(value));
+		assertFunc(`Type error [${typeOf(value)}] expected an array`, isEmberArray(value));
 		return this;
 	},
 
@@ -152,9 +155,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isObject(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isObject>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isObject>', !isNone(value));
 
-		assert(`Type error [${Ember.typeOf(value)}] expected an object`, !Ember.isNone(value) && typeof value === 'object' && !Ember.isArray(value));
+		assertFunc(`Type error [${typeOf(value)}] expected an object`, !isNone(value) && typeof value === 'object' && !isEmberArray(value));
 		return this;
 	},
 
@@ -168,9 +171,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isMoment(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isMoment>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isMoment>', !isNone(value));
 
-		assert(`Type error [${value.constructor}] expected a Moment`, !Ember.isNone(value) && moment.isMoment(value));
+		assertFunc(`Type error [${value.constructor}] expected a Moment`, !isNone(value) && moment.isMoment(value));
 		return this;
 	},
 
@@ -184,9 +187,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isUUID(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isUUID>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isUUID>', !isNone(value));
 
-		assert(`Type error [${value}] expected a UUID`, typeof value === 'string' && UUID.isValid(value));
+		assertFunc(`Type error [${value}] expected a UUID`, typeof value === 'string' && UUID.isValid(value));
 		return this;
 	},
 
@@ -200,17 +203,17 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isModel(value) {
-		Ember.assert('parameter 1 cannot be null or undefined <utils::assert::isModel>', !Ember.isNone(value));
+		assert('parameter 1 cannot be null or undefined <utils::assert::isModel>', !isNone(value));
 
-		if (!(value instanceof DS.Model) && typeof value === 'object' && value.get) {
+		if (!(value instanceof Model) && typeof value === 'object' && value.get) {
 			// if DS.PromiseObject then get the content model from the object and check it.
-			value = !Ember.isNone(value.get('content')) ? value.get('content') : value;
+			value = !isNone(value.get('content')) ? value.get('content') : value;
 
 			// if collection model then get the model from the model property.
-			value = !Ember.isNone(value.get('model')) ? value.get('model') : value;
+			value = !isNone(value.get('model')) ? value.get('model') : value;
 		}
 
-		assert(`Type error [${value.constructor}] expected a DS.Model`, Ember.typeOf(value) === 'instance' && value instanceof DS.Model);
+		assertFunc(`Type error [${value.constructor}] expected a DS.Model`, typeOf(value) === 'instance' && value instanceof Model);
 		return this;
 	},
 
@@ -225,9 +228,9 @@ Assert.reopenClass({
 	 * @param test {boolean} A test that eveluates to true or false
 	 */
 	test(message, test) {
-		Ember.assert("parameter 1 must be a string in <utils::assert::test>", typeof message === 'string');
+		assert("parameter 1 must be a string in <utils::assert::test>", typeof message === 'string');
 
-		assert(message, test);
+		assertFunc(message, test);
 		return this;
 	},
 
@@ -241,9 +244,9 @@ Assert.reopenClass({
 	 * @param message {string} The message to throw.
 	 */
 	throw(message) {
-		Ember.assert("parameter 1 must be a string in <utils::assert::throw>", typeof message === 'string');
+		assert("parameter 1 must be a string in <utils::assert::throw>", typeof message === 'string');
 
-		assert(message, false);
+		assertFunc(message, false);
 		return this;
 	}
 });

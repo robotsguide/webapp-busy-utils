@@ -2,7 +2,9 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
+import EmberObject from 'ember-object';
+import { isNone } from 'ember-utils';
+import get from 'ember-metal/get';
 import assert from './assert';
 
 /***/
@@ -46,7 +48,7 @@ const __locales = {
  * @namespace BusyUtils
  * @extends Ember.Object
  */
-const Locale = Ember.Object.extend();
+const Locale = EmberObject.extend();
 Locale.reopenClass({
   /**
    * Get the locale formated date str for a specific region.
@@ -61,10 +63,10 @@ Locale.reopenClass({
     assert.isString(str);
     assert.isString(locale);
 
-    const _formats = Ember.get(__locales, locale);
-    if (!Ember.isNone(_formats)) {
-      const format = Ember.get(_formats, str);
-      if (!Ember.isNone(format)) {
+    const _formats = get(__locales, locale);
+    if (!isNone(_formats)) {
+      const format = get(_formats, str);
+      if (!isNone(format)) {
         return format;
       }
     }

@@ -2,11 +2,12 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
-import uuid from 'npm:uuid';
+import EmberObject from 'ember-object';
+import { assert } from 'ember-metal/utils';
+import { v4 } from 'ember-uuid';
 
 /***/
-const UUID = Ember.Object.extend();
+const UUID = EmberObject.extend();
 
 /**
  * `Util/UUID`
@@ -24,10 +25,10 @@ UUID.reopenClass({
 	 */
 	generate() {
 		// gennerate the uuid
-		const id = uuid.v4(...arguments);
+		const id = v4.apply(v4, arguments);
 
 		// assert the uuid created a valid uuid
-		Ember.assert('Generate created an invalid UUID', this.isValid(id));
+		assert('Generate created an invalid UUID', this.isValid(id));
 
 		// return the uuid.
 		return id;

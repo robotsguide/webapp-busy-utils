@@ -1,12 +1,12 @@
 
-import Ember from 'ember';
-import SHA256 from 'npm:crypto-js/sha256';
+import EmberObject from 'ember-object';
+import CryptoJS from 'crypto-js';
 
-const Hash = Ember.Object.create();
+const Hash = EmberObject.extend();
 
 Hash.reopenClass({
 	sha256() {
-		return SHA256.apply(SHA256, arguments);
+		return CryptoJS.SHA256.apply(CryptoJS, arguments);
 	}
 });
 

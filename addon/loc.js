@@ -2,7 +2,8 @@
  * @module Utils
  *
  */
-import Ember from 'ember';
+import { isNone } from 'ember-utils';
+import { loc } from 'ember-string';
 import assert from './assert';
 
 /**
@@ -11,14 +12,13 @@ import assert from './assert';
  * @class Loc
  * @namespace Utils
  */
-export default function loc(str, params) {
-
+export default function localizer(str, params) {
 	assert.funcNumArgs(arguments, 2);
 	assert.isString(str);
 
-	if(!Ember.isNone(params)) {
+	if(!isNone(params)) {
 		assert.isArray(params);
 	}
 
-	return Ember.String.loc(str, params);
+	return loc(str, params);
 }
