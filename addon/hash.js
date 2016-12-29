@@ -5,6 +5,10 @@ import CryptoJS from 'crypto-js';
 const Hash = EmberObject.extend();
 
 Hash.reopenClass({
+	sha1() {
+		return CryptoJS.SHA1.apply(CryptoJS, arguments);
+	},
+
 	sha256() {
 		return CryptoJS.SHA256.apply(CryptoJS, arguments);
 	},
