@@ -11,6 +11,7 @@ engines:
     - f716a06d77c5f082b1f935ba97c9be6c
     - 41683e1c3b923ea52ba51a5b480587f3
     - 9d11dad4e2c707db82bc92e4af9e01d7
+    - 9f005e77a40670b69ae09175957a38df
     config:
       languages:
       - javascript
