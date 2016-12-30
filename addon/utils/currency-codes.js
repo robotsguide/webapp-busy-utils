@@ -1383,7 +1383,7 @@ export default A([
 		symbol: "\u20bf",
 		digits: 0,
 		format: _cd,
-		currency: 'Bitcoin',
+		currency: 'Bitcoin'
 	}),
 	EmberObject.create({
 		code: 'XCD',
@@ -1427,7 +1427,7 @@ export default A([
 		number: '963',
 		digits: 4,
 		format: _cd,
-		currency: 'Code reserved for testing purposes',
+		currency: 'Code reserved for testing purposes'
 	}),
 	EmberObject.create({
 		code: 'XXX',
@@ -1435,7 +1435,7 @@ export default A([
 		number: '999',
 		digits: 0,
 		format: _cd,
-		currency: 'No Currency',
+		currency: 'No Currency'
 	}),
 	EmberObject.create({
 		code: 'YER',
