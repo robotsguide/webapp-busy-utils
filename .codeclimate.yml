@@ -4,6 +4,13 @@ engines:
     enabled: true
     exclude_fingerprints:
     - 99c25d773a02aeb6e32b2557256b4102
+    - 261515b258715dbddc1bf1d0724ae2f7
+    - f0c8cd4a96ecbb9593a44391e9ec04a9
+    - fb199fdb9d798f9c75924554f77bbe07
+    - 6eea73668f00f4bf8550322592efe901
+    - f716a06d77c5f082b1f935ba97c9be6c
+    - 41683e1c3b923ea52ba51a5b480587f3
+    - 9d11dad4e2c707db82bc92e4af9e01d7
     config:
       languages:
       - javascript
