@@ -28,8 +28,7 @@ LocalStorage.reopenClass({
 	 * @param {mixed} value Some value to store.
 	 * @returns {this}
 	 */
-	setProperty: function(key, value)
-	{
+	setProperty(key, value) {
 		// assert the function recieved 2 args and
 		// the first arg is a string.
 		assert.funcNumArgs(arguments, 2, true);
@@ -50,8 +49,7 @@ LocalStorage.reopenClass({
 	 * @param {sting} key The key to store the value with.
 	 * @returns {mixed}
 	 */
-	getProperty: function(key)
-	{
+	getProperty(key) {
 		// assert the function recieved 1 arg and
 		// the arg is a string.
 		assert.funcNumArgs(arguments, 1, true);
@@ -71,19 +69,18 @@ LocalStorage.reopenClass({
 	 * @param {mixed} defaultValue A default value to return if the value is null or undefined.
 	 * @returns {mixed}
 	 */
-    getWithDefault: function(key, defaultValue)
-    {
+	getWithDefault(key, defaultValue) {
 		// assert the function recieved 2 args and
 		// the first arg is a string.
 		assert.funcNumArgs(arguments, 2, true);
 		assert.isString(key);
 
 		// get the value from storage.
-        const storeValue = this.getProperty(key);
+		const storeValue = this.getProperty(key);
 
 		// if returned value is null or undefined then return the defaultValue provided.
 		return !isNone(storeValue) ? storeValue : defaultValue;
-    },
+	},
 
 	/**
 	 * Check to see if the key provided has a value in local storage.
@@ -93,8 +90,7 @@ LocalStorage.reopenClass({
 	 * @param {sting} key The key to store the value with.
 	 * @returns {boolean}
 	 */
-	hasValue: function(key)
-	{
+	hasValue(key) {
 		// assert the function recieved 1 arg and
 		// the arg is a string.
 		assert.funcNumArgs(arguments, 1, true);
@@ -112,8 +108,7 @@ LocalStorage.reopenClass({
 	 * @param {sting} key The key to store the value with.
 	 * @returns {this}
 	 */
-	remove: function(key)
-	{
+	remove(key) {
 		// assert the function recieved 1 arg and
 		// the arg is a string.
 		assert.funcNumArgs(arguments, 1, true);
@@ -123,7 +118,8 @@ LocalStorage.reopenClass({
 		_localStorage.removeItem(key);
 
 		return this;
-	},
+	}
 });
 
 export default LocalStorage;
+

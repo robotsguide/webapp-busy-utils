@@ -18,16 +18,13 @@ function assertTest(test) {
 	return false;
 }
 
-function throwAssert(message, depth) {
-	const err = new Error();
-	const func = err.stack.split('at')[depth];
-
-	assert(`${message} in${func}`, false);
+function throwAssert(message) {
+	throw new Error(`Assertion failed: ${message}`);
 }
 
-function assertFunc(message, test, depth=4) {
+function assertFunc(message, test) {
 	if (!assertTest(test)) {
-		throwAssert(message, depth);
+		throwAssert(message);
 	}
 }
 
@@ -237,7 +234,6 @@ Assert.reopenClass({
 	/**
 	 * Throw an assertion
 	 *
-	 * @chainable
 	 * @static
 	 * @public
 	 * @method throw
@@ -247,7 +243,6 @@ Assert.reopenClass({
 		assert("parameter 1 must be a string in <utils::assert::throw>", typeof message === 'string');
 
 		assertFunc(message, false);
-		return this;
 	}
 });
 
