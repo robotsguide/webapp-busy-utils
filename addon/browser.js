@@ -191,7 +191,7 @@ browserInfo.reopenClass({
 	 */
 	isBrowserType(browser) {
 		return (window.navigator.userAgent.indexOf(browser) !== -1);
-	},
+	}
 });
 
 export default browserInfo;
