@@ -18,6 +18,10 @@ env:
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
 
+addons:
+  code_climate:
+    repo_token: 9ed84a944afd64cb9846db476760d6ceaa577acaf239b415e4d13a3369579c4c
+
 matrix:
   fast_finish: true
   allow_failures:
@@ -39,6 +43,6 @@ script:
   #  to the addon's original dependency state, skipping "cleanup".
   - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 
-addons:
-  code_climate:
-    repo_token: 9ed84a944afd64cb9846db476760d6ceaa577acaf239b415e4d13a3369579c4c
+after_success:
+  - npm install -g codeclimate-test-reporter
+  - codeclimate-test-reporter < lcov.info

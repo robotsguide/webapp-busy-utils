@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/busybusy/webapp-busy-utils.svg?branch=master)](https://travis-ci.org/busybusy/webapp-busy-utils)
 [![Ember badge][ember-badge]][embadge]
+[![Code Climate](https://codeclimate.com/github/busybusy/webapp-busy-utils/badges/gpa.svg)](https://codeclimate.com/github/busybusy/webapp-busy-utils)
+[![Test Coverage](https://codeclimate.com/github/busybusy/webapp-busy-utils/badges/coverage.svg)](https://codeclimate.com/github/busybusy/webapp-busy-utils/coverage)
+[![Issue Count](https://codeclimate.com/github/busybusy/webapp-busy-utils/badges/issue_count.svg)](https://codeclimate.com/github/busybusy/webapp-busy-utils)
 
 # busy utils
 
