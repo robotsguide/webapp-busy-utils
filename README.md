@@ -30,4 +30,4 @@ This README outlines the details of collaborating on this Ember addon.
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
 
 [embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=2.10.0
+[ember-badge]: http://embadge.io/v1/badge.svg?start=2.11.0
