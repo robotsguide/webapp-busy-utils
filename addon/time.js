@@ -195,7 +195,7 @@ Time.reopenClass({
 		return window.__NIST.isTrustedTimeType(...arguments);
 	},
 
-	convertSeconds(seconds) {
+	convertSeconds(seconds, toFixed=2) {
 		seconds = parseInt(seconds, 10);
 		seconds = seconds < 0 || isNaN(seconds) ? 0 : seconds;
 
@@ -208,7 +208,12 @@ Time.reopenClass({
 
 		const secs = Math.ceil(remaining);
 
-		return { hours, minutes, seconds: secs, decimal: (seconds/60/60) };
+		return {
+			hours,
+			minutes,
+			seconds: secs,
+			decimal: (Math.round((seconds/60/60) * Math.pow(10, toFixed)) / Math.pow(10, toFixed))
+		};
 	},
 
 	/**
@@ -236,7 +241,7 @@ Time.reopenClass({
 
 		assert('format must be a number in convertSecondsString', typeof format === 'number');
 
-		const time = this.convertSeconds(seconds);
+		const time = this.convertSeconds(seconds, toFixed);
 
 		if (format === 20) {
 			// set time string for decimal hours
