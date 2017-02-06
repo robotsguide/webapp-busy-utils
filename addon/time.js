@@ -195,28 +195,20 @@ Time.reopenClass({
 		return window.__NIST.isTrustedTimeType(...arguments);
 	},
 
-	convertSeconds(seconds, leadingZeros)
-	{
+	convertSeconds(seconds) {
 		seconds = parseInt(seconds, 10);
-
-		leadingZeros = leadingZeros === true ? true : false;
 		seconds = seconds < 0 || isNaN(seconds) ? 0 : seconds;
 
-		var remaining = seconds;
-		var hours = Math.floor(remaining / 3600);
-			remaining %= 3600;
+		let remaining = seconds;
+		const hours = Math.floor(remaining / 3600);
+		remaining %= 3600;
 
-		var minutes = Math.floor(remaining / 60);
-			remaining %= 60;
+		const minutes = Math.floor(remaining / 60);
+		remaining %= 60;
 
-		var secs = Math.ceil(remaining);
+		const secs = Math.ceil(remaining);
 
-		return {
-			hours: (leadingZeros && hours < 10) ? '0' + hours.toString() : hours.toString(),
-			minutes: (minutes < 10) ? '0' + minutes.toString() : minutes.toString(),
-			seconds: (secs < 10) ? '0' + secs.toString() : secs.toString(),
-			decimal: (seconds/60/60).toFixed(2)
-		};
+		return { hours, minutes, seconds: secs, decimal: (seconds/60/60) };
 	},
 
 	/**
@@ -232,7 +224,7 @@ Time.reopenClass({
 	 * @param format {number} 10 for 00:00 and 20 for 0.00 formats
 	 * @return {object} An object with the hours, minutes, and seconds
 	 */
-	convertSecondsString(seconds, padHours, showSeconds, longFormat, format) {
+	convertSecondsString(seconds, format, padHours=false, showSeconds=false, longFormat=false, toFixed=2) {
 		let timeStr = '';
 
 		// format can be passed in to override the users ability to change
@@ -244,24 +236,33 @@ Time.reopenClass({
 
 		assert('format must be a number in convertSecondsString', typeof format === 'number');
 
-		const time = this.convertSeconds(seconds, padHours);
+		const time = this.convertSeconds(seconds);
 
 		if (format === 20) {
 			// set time string for decimal hours
-			timeStr = longFormat === true ? loc('%@ Hrs', [time.decimal]) : time.decimal;
+			timeStr = loc('%@ Hrs', [time.decimal.toFixed(toFixed)]);
 		}  else {
-			if (longFormat === true) {
-				// remove padded zeros
-				time.minutes = !padHours ? time.minutes.replace(/0([\d]+)$/g, '$1') : time.minutes;
-				time.seconds = !padHours ? time.seconds.replace(/0([\d]+)$/g, '$1') : time.seconds;
+			if (padHours === true) {
+				time.hours = (time.hours < 10 ? '0' : '') + time.hours;
+				if (longFormat === false) {
+					time.minutes = (time.minutes < 10 ? '0' : '') + time.minutes;
+					time.seconds = (time.seconds < 10 ? '0' : '') + time.seconds;
+				}
+			}
 
+			if (longFormat === true) {
 				// set time string for long format hrs mins secs
-				timeStr = showSeconds === true ? loc('%@ Hrs %@ Mins %@ Secs', [time.hours, time.minutes, time.seconds]) : loc('%@ Hrs %@ Mins', [time.hours, time.minutes]);
-			} else {
-				// set time string for hrs:min:secs
-				timeStr = time.hours + ':' + time.minutes;
 				if (showSeconds === true) {
-					timeStr = timeStr + ':' + time.seconds;
+					timeStr = loc('%@ Hrs %@ Mins %@ Secs', [time.hours, time.minutes, time.seconds]);
+				} else {
+					timeStr = loc('%@ Hrs %@ Mins', [time.hours, time.minutes]);
+				}
+			} else {
+				if (showSeconds === true) {
+					// set time string for hrs:min:secs
+					timeStr = `${time.hours}:${time.minutes}:${time.seconds}`;
+				} else {
+					timeStr = `${time.hours}:${time.minutes}`;
 				}
 			}
 		}
@@ -269,22 +270,16 @@ Time.reopenClass({
 		return timeStr;
 	},
 
-	timezoneString(offset, isDST)
-	{
-		var zone = zoneList[offset];
-
-		if(zone && zone.locale)
-		{
+	timezoneString(offset, isDST) {
+		let zone = zoneList[offset];
+		if (zone && zone.locale) {
 			zone = zone.locale['en-US'];
 		}
 
-		if(zone && zone.period)
-		{
-			var period = isDST ? 'dst' : 'standard';
-
+		if (zone && zone.period) {
+			const period = isDST ? 'dst' : 'standard';
 			zone = zone.period[period];
 		}
-
 		return zone;
 	},
 
