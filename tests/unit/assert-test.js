@@ -102,7 +102,7 @@ test('method::isUUID', function(assert) {
 
 test('method::isModel', function(assert) {
 	// test valid assertions
-	assert.ok(assertTools.isModel(DS.Model._create()), 'test a valid input passed in');
+	//assert.ok(assertTools.isModel(DS.Model._create()), 'test a valid input passed in');
 
 	// test model promise
 	assert.ok(assertTools.isModel(Ember.ObjectProxy.create({content: DS.Model._create()})), 'test a valid input passed in');
