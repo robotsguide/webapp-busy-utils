@@ -18,7 +18,7 @@ import assert from './assert';
  */
 const __locales = {
   'es': {
-	  'h:mm A': 'h:mm a',
+		'h:mm A': 'h:mm a',
 		'MMM D': 'll',
 		'MMM DD': 'll',
 		'MMM. DD, h:mm A': 'll h:mm a',
@@ -34,7 +34,7 @@ const __locales = {
 		'ddd, MMM DD': 'ddd, ll',
 		'ddd, MMM D, YYYY': 'ddd, ll',
 		'ddd, MMM Do, YYYY': 'ddd, ll',
-	  'ddd. MMM Do, YYYY': 'ddd, ll',
+		'ddd. MMM Do, YYYY': 'ddd, ll',
 		'ddd. MMM Do h:mm A': 'll h:mm a',
 		'MMMM D, YYYY @h:mm A': 'LL @h:mm a',
 		'ddd. MMM Do YYYY h:mm A': 'ddd, ll h:mm a'

@@ -52,25 +52,25 @@ export default {
 	},
 	"3600": {
 		period: {
-		  standard: 'CET',  // Central European TimeEntryJulJul 13 2015 19:46:59GMTGMT+1:00+
-		  dst: 'WEST'		// Western European Summer TimeEntryJulJul 13 2015 19:46:59GMTGMT+1:00+
+			standard: 'CET',  // Central European TimeEntryJulJul 13 2015 19:46:59GMTGMT+1:00+
+			dst: 'WEST'		// Western European Summer TimeEntryJulJul 13 2015 19:46:59GMTGMT+1:00+
 		}
 	},
 	"7200": {
-	  locale: {
-		  'en-US': {
-			  period: {
-				  standard: 'EET',  // Eastern European TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
-				  dst: 'CEST' 	  // Central European Summer TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
-			  }
-		  },
-		  "ar": 'ART',  // (Arabic) Egypt Standard TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
-	  }
+		locale: {
+			'en-US': {
+				period: {
+					standard: 'EET',  // Eastern European TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
+					dst: 'CEST' 	  // Central European Summer TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
+				}
+			},
+			"ar": 'ART',  // (Arabic) Egypt Standard TimeEntryJulJul 13 2015 20:46:59GMTGMT+2:00+
+		}
 	},
 	"10800": {
 		period: {
-			  standard: 'EAT',  // Eastern African TimeEntryJulJul 13 2015 21:46:59GMTGMT+3:00+
-			   dst: 'EEST'		// Eastern European Summer TimeEntryJulJul 13 2015 21:46:59GMTGMT+3:00+
+			standard: 'EAT',  // Eastern African TimeEntryJulJul 13 2015 21:46:59GMTGMT+3:00+
+			dst: 'EEST'		// Eastern European Summer TimeEntryJulJul 13 2015 21:46:59GMTGMT+3:00+
 		}
 	},
 	"12600": 'MET',  // Middle East TimeEntryJulJul 13 2015 22:16:59GMTGMT+3:30+
@@ -80,11 +80,11 @@ export default {
 	"21600": 'BST',  // Bangladesh Standard TimeEntryJulJul 14 2015 00:46:59GMTGMT+6:00+
 	"25200": 'ICT',  // Indochina TimeEntryJulJul 14 2015 01:46:59GMTGMT+7:00+
 	"28800": {
-	   locale: {
-		   'ch': 'CTT',  // China Taiwan TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
-		   'en': 'SGT',  // Singapore TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
-		   'en-US': 'AWST' // Australia Western TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
-	   }
+		locale: {
+			'ch': 'CTT',  // China Taiwan TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
+			'en': 'SGT',  // Singapore TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
+			'en-US': 'AWST' // Australia Western TimeEntryJulJul 14 2015 02:46:59GMTGMT+8:00+
+		}
 	},
 	"32400": 'JST',  // Japan Standard TimeEntryJulJul 14 2015 03:46:59GMTGMT+9:00+
 	"34200": 'ACST', // Australia Central TimeEntryJulJul 14 2015 04:16:59GMTGMT+9:30+
