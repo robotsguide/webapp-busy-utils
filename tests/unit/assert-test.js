@@ -2,7 +2,6 @@ import assertTools from 'busy-utils/assert';
 import { module, test } from 'qunit';
 import moment from 'moment';
 import UUID from 'busy-utils/uuid';
-//import DS from 'ember-data';
 //import Ember from 'ember';
 
 module('Unit | Utility | Assert');
@@ -100,24 +99,20 @@ test('method::isUUID', function(assert) {
 	//assert.throws(() => assertTools.isUUID('1233-123123-3123-234'), /expected a UUID/, 'test an invalid input passed in');
 });
 
-//test('method::isModel', function(assert) {
+test('method::isModel', function(assert) {
 	// test valid assertions
-	//assert.ok(assertTools.isModel(DS.Model._create()), 'test a valid input passed in');
+	assert.ok(assertTools.isModel({test: "test"}), 'test a valid input passed in');
 
 	// test model promise
 	//assert.ok(assertTools.isModel(Ember.ObjectProxy.create({content: DS.Model._create()})), 'test a valid input passed in');
 
 	// test invalid assertions
 	//assert.throws(() => assertTools.isModel({}), /expected a DS.Model/, 'test an invalid input passed in');
-//});
+});
 
 test('method::test', function(assert) {
 	// test valid assertions
 	assert.ok(assertTools.test('test', true), 'test a valid input passed in');
-
-	// test invalid assertions
-	//assert.throws(() => assertTools.test('test', false), /Assertion/, 'test a failed assertion');
-	//assert.throws(() => assertTools.test(false), /parameter 1 must be a string/, 'test an invalid input for param 1');
 });
 
 test('method::throw', function(assert) {

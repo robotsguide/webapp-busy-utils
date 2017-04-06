@@ -6,7 +6,7 @@ import EmberObject from 'ember-object';
 import { assert } from 'ember-metal/utils';
 import { typeOf, isNone } from 'ember-utils';
 import { isEmberArray } from 'ember-array/utils';
-import Model from 'ember-data/model';
+import { deprecate } from 'ember-deprecations';
 import UUID from './uuid';
 import moment from 'moment';
 
@@ -200,18 +200,9 @@ Assert.reopenClass({
 	 * @param value {mixed} The value to test
 	 */
 	isModel(value) {
-		assert('parameter 1 cannot be null or undefined <utils::assert::isModel>', !isNone(value));
+		deprecate("isModel is deprecated, please use isObject instead", false, {id: "assert-is-model", until: "3.0.0", url: ""});
 
-		if (!(value instanceof Model) && typeof value === 'object' && value.get) {
-			// if DS.PromiseObject then get the content model from the object and check it.
-			value = !isNone(value.get('content')) ? value.get('content') : value;
-
-			// if collection model then get the model from the model property.
-			value = !isNone(value.get('model')) ? value.get('model') : value;
-		}
-
-		assertFunc(`Type error [${value.constructor}] expected a DS.Model`, typeOf(value) === 'instance' && value instanceof Model);
-		return this;
+		return this.isObject(value);
 	},
 
 	/**
