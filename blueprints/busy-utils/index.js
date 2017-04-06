@@ -3,6 +3,17 @@ module.exports = {
 	normalizeEntityName() {},
 
 	afterInstall() {
-		return this.addAddonsToProject({packages: ["ember-moment@7.3.0", "ember-uuid@1.0.0"]});
+		return this.addAddonsToProject({
+			packages: [
+				{
+					name: "ember-moment",
+					target: "7.3.0"
+				},
+				{
+					name: "ember-uuid",
+					target: "1.0.0"
+				}
+			]
+		});
 	}
 };
