@@ -1,5 +1,6 @@
 /* eslint-env node */
 'use strict';
+var commands = require('./lib/commands');
 
 module.exports = {
   name: 'busy-utils',
@@ -13,5 +14,9 @@ module.exports = {
 		}
 
 		this.app = app;
-  }
+  },
+
+	includedCommands() {
+		return commands;
+	}
 };
