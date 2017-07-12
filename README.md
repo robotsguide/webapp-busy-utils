@@ -65,4 +65,4 @@ License
 [MIT License](https://opensource.org/licenses/mit-license.php)
 
 [embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=2.13.2
+[ember-badge]: http://embadge.io/v1/badge.svg?start=2.14.0
