@@ -40,3 +40,4 @@ test('now returns now in utc', function(assert) {
 
 	assert.equal(time.unix() + zone, newTime.unix());
 });
+

@@ -9,11 +9,11 @@ import get from 'ember-metal/get';
 import set from 'ember-metal/set';
 
 import moment from 'moment';
-import loc from './loc';
-import localStorage from './local-storage';
-import locale from './locale';
-import Assert from './assert';
-import TimeZones from './utils/time-zones';
+import loc from 'busy-utils/loc';
+import localStorage from 'busy-utils/local-storage';
+import locale from 'busy-utils/locale';
+import Assert from 'busy-utils/assert';
+import TimeZones from 'busy-utils/utils/time-zones';
 
 const Time = EmberObject.extend();
 
