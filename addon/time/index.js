@@ -9,7 +9,10 @@
 import legacy from './legacy';
 export default legacy;
 
+import { timeSpan } from './time-span';
+
 import {
+	timeSpanMap,
 	elapsedTime,
 	elapsedTimeMap
 } from './elapsed-time';
@@ -23,6 +26,8 @@ export function createUnix(timestamp) {
 }
 
 export {
+	timeSpan,
+	timeSpanMap,
 	elapsedTime,
 	elapsedTimeMap
-}
+};

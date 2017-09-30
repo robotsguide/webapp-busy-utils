@@ -4,8 +4,9 @@
  */
 import Ember from 'ember';
 import { createDate } from 'busy-utils/time';
+import { assertIsString } from 'busy-utils/assert';
 
-const { typeOf, isArray, isNone } = Ember;
+const { get, typeOf, isArray, isNone } = Ember;
 
 /**
  * Checks if the input is a valid unix timestamp
@@ -35,4 +36,13 @@ export function isArrayNumber(itterator) {
 	return isArray(itterator) && itterator.reject(value => typeOf(value) === 'number').length === 0;
 }
 
+export function isTypeOfModel(type, model) {
+	assertIsString(type);
+
+	if (isObject(model)) {
+		let modelName = get(model, 'modelName') || get(model, '_internalModel.modelName');
+		return modelName === type;
+	}
+	return false;
+}
 

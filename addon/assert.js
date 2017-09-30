@@ -11,7 +11,8 @@ import UUID from './uuid';
 import moment from 'moment';
 import {
 	isUnix,
-	isObject
+	isObject,
+	isTypeOfModel
 } from './types';
 
 /***/
@@ -182,6 +183,20 @@ export function assertIsModel(value) {
 	deprecate("isModel is deprecated, please use isObject instead", false, {id: "assert-is-model", until: "3.0.0", url: ""});
 
 	assertIsObject(value);
+}
+
+/**
+	* Assert that a value is of type DS.Model
+	*
+	* @public
+	* @method isTypeOfModel
+	* @param type {String} dasherized model name
+	* @param value {mixed} The value to test
+	*/
+export function assertIsTypeOfModel(type, value) {
+	assertIsString(type);
+
+	__assertFunc(`Type error [${value}] expected a DS.Model of type <${type}>`, isTypeOfModel(type, value));
 }
 
 /**
