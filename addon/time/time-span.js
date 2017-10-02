@@ -187,7 +187,7 @@ export function timeSpan(model, startKey, endKey, startBounds=null, endBounds=nu
 	// use the lesser of end or predecessor end;
 	start = Math.max(start, predecessorEnd);
 
-	let overlapped = end === predecessorEnd;
+	let overlapped = start === predecessorEnd;
 	let embedded = !invalidSpan && start > end;
 
 	// remove negative time if the bounds
