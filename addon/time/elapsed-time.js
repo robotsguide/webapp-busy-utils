@@ -7,7 +7,7 @@ import { timeSpan, isTimeSpan } from './time-span';
 import { assertIsString, assertTest } from 'busy-utils/assert';
 
 /***/
-const { get, isArray, } = Ember;
+const { get, isArray } = Ember;
 
 /**
  * calculates the total time for the entry
