@@ -1,12 +1,12 @@
 {
   "name": "@busybusy/utils",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon",
-		"busybusy",
+    "busybusy",
     "@busybusy",
-		"@busybusy/utils"
+    "@busybusy/utils"
   ],
   "license": "MIT",
   "author": "busy inc.",
