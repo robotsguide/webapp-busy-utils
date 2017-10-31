@@ -1,5 +1,5 @@
-import loc from 'busy-utils/loc';
 import { module, test } from 'qunit';
+import { loc } from '@busybusy/utils';
 
 module('Unit | Utility | loc');
 

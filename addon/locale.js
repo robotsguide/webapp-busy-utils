@@ -2,9 +2,8 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { isNone } from 'ember-utils';
-import get from 'ember-metal/get';
+import EmberObject, { get } from '@ember/object';
+import { isNone } from '@ember/utils';
 import assert from './assert';
 
 /***/

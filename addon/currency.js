@@ -2,8 +2,8 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { isEmpty } from 'ember-utils';
+import EmberObject from '@ember/object';
+import { isEmpty } from '@ember/utils';
 import CurrencyCodes from './utils/currency-codes';
 import Assert from './assert';
 

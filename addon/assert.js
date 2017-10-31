@@ -2,11 +2,11 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { assert } from 'ember-metal/utils';
-import { typeOf, isNone } from 'ember-utils';
-import { isEmberArray } from 'ember-array/utils';
-import { deprecate } from 'ember-deprecations';
+import EmberObject from '@ember/object';
+import { assert } from '@ember/debug';
+import { typeOf, isNone } from '@ember/utils';
+import { isArray } from '@ember/array';
+import { deprecate } from '@ember/application/deprecations';
 import UUID from './uuid';
 import moment from 'moment';
 
@@ -50,7 +50,7 @@ Assert.reopenClass({
 	 * @param [equal=false] {boolean} false if at most this many args and true if exactly this many args.
 	 */
 	funcNumArgs(args, argCount, equal=false) {
-		assert('args must be an array in <utils::assert::funcNumArgs>', isEmberArray(args));
+		assert('args must be an array in <utils::assert::funcNumArgs>', isArray(args));
 		assert('argCount must be a number in <utils::assert::funcNumArgs>', typeOf(argCount) === 'number');
 		assert('equal must be a boolean in <utils::assert::funcNumArgs>', typeOf(equal) === 'boolean');
 
@@ -138,7 +138,7 @@ Assert.reopenClass({
 	isArray(value) {
 		assert('parameter 1 cannot be null or undefined <utils::assert::isArray>', !isNone(value));
 
-		assertFunc(`Type error [${typeOf(value)}] expected an array`, isEmberArray(value));
+		assertFunc(`Type error [${typeOf(value)}] expected an array`, isArray(value));
 		return this;
 	},
 
@@ -154,7 +154,7 @@ Assert.reopenClass({
 	isObject(value) {
 		assert('parameter 1 cannot be null or undefined <utils::assert::isObject>', !isNone(value));
 
-		assertFunc(`Type error [${typeOf(value)}] expected an object`, !isNone(value) && typeof value === 'object' && !isEmberArray(value));
+		assertFunc(`Type error [${typeOf(value)}] expected an object`, !isNone(value) && typeof value === 'object' && !isArray(value));
 		return this;
 	},
 

@@ -1,6 +1,6 @@
 
-import EmberObject from 'ember-object';
-import { A } from 'ember-array/utils';
+import EmberObject from '@ember/object';
+import { A } from '@ember/array';
 
 /***/
 const space = '\u0020';

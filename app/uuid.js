@@ -1,1 +1,1 @@
-export { default } from 'busy-utils/uuid';
+export { default } from '@busybusy/utils/uuid';

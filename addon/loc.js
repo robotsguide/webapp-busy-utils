@@ -2,8 +2,8 @@
  * @module Utils
  *
  */
-import { isNone } from 'ember-utils';
-import { loc } from 'ember-string';
+import { isNone } from '@ember/utils';
+import { loc } from '@ember/string';
 import assert from './assert';
 
 /**

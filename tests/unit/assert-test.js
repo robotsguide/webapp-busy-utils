@@ -1,8 +1,6 @@
-import assertTools from 'busy-utils/assert';
 import { module, test } from 'qunit';
 import moment from 'moment';
-import UUID from 'busy-utils/uuid';
-//import Ember from 'ember';
+import { Assert as assertTools, UUID } from '@busybusy/utils';
 
 module('Unit | Utility | Assert');
 

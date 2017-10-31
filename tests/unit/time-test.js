@@ -1,6 +1,6 @@
-import Time from 'busy-utils/time';
 import { module, test } from 'qunit';
 import moment from 'moment';
+import { Time } from '@busybusy/utils';
 
 module('Unit | Utility | Time');
 

@@ -1,5 +1,5 @@
-import timeZones from 'dummy/utils/time-zones';
 import { module, test } from 'qunit';
+import timeZones from 'dummy/utils/time-zones';
 
 module('Unit | Utility | time zones');
 

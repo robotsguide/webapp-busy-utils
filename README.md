@@ -1,4 +1,4 @@
-busy-utils
+@busybusy/utils
 ==============================================================================
 
 [![npm version](https://badge.fury.io/js/busy-utils.svg)](https://badge.fury.io/js/busy-utils)
@@ -19,15 +19,15 @@ Installation
 
 Install this addon using ember-cli
 ```
-ember install busy-utils
+ember install @busybusy/utils
 ```
 
 Usage
 ------------------------------------------------------------------------------
 
-Use busy-utils in your js files
+Use @busybusy/utils in your js files
 ```
-import { Assert } from 'busy-utils';
+import { Assert } from '@busybusy/utils';
 
 Assert.test('some message', someTest === someValue);
 ```

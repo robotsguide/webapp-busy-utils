@@ -2,12 +2,8 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { isNone } from 'ember-utils';
-import { assert } from 'ember-metal/utils';
-import get from 'ember-metal/get';
-import set from 'ember-metal/set';
-
+import EmberObject, { get, set } from '@ember/object';
+import { isNone } from '@ember/utils';
 import moment from 'moment';
 import loc from './loc';
 import localStorage from './local-storage';
@@ -147,7 +143,7 @@ Time.reopenClass({
 			format = parseInt(format, 10);
 		}
 
-		assert('format must be a number in convertSecondsString', typeof format === 'number');
+		Assert.test('format must be a number in convertSecondsString', typeof format === 'number');
 
 		const time = this.convertSeconds(seconds, toFixed);
 
@@ -209,7 +205,7 @@ Time.reopenClass({
 	 * @return {void}
 	 */
 	setHoursFormat(type) {
-		assert('setHoursFormat only accepts a 10 for standard format or 20 for decimal format', type === 10 || type === 20);
+		Assert.test('setHoursFormat only accepts a 10 for standard format or 20 for decimal format', type === 10 || type === 20);
 
 		this.set('hoursFormat', type);
 		localStorage.setProperty('format-hours-type', type);

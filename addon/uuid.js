@@ -2,8 +2,8 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { assert } from 'ember-metal/utils';
+import EmberObject from '@ember/object';
+import { assert } from '@ember/debug';
 import { v4 } from 'ember-uuid';
 
 /***/

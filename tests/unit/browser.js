@@ -1,5 +1,5 @@
-import browserInfo from 'busy-utils/browser';
 import { module, test } from 'qunit';
+import { Browser as browserInfo } from '@busybusy/utils';
 
 module('Unit | Utility | browser info');
 

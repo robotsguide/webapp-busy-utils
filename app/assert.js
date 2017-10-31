@@ -1,1 +1,1 @@
-export { default } from 'busy-utils/assert';
+export { default } from '@busybusy/utils/assert';

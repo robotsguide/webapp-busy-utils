@@ -1,5 +1,5 @@
 /**
- * defualt busy-utils
+ * defualt @busybusy/utils
  *
  */
 import Assert from './assert';

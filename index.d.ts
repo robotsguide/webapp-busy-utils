@@ -3,7 +3,7 @@
  *
  */
 
-declare module 'busy-utils' {
+declare module '@busybusy/utils' {
 	export class Assert {
 		public static funcNumArgs(args: any[], argCount: number, equal: boolean): Assert;
 		public static isString(value: any): Assert;

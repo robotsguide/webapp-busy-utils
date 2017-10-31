@@ -1,6 +1,7 @@
-import Currency from 'busy-utils/currency';
+import { isNone } from '@ember/utils';
+import { isArray } from '@ember/array';
 import { module, test } from 'qunit';
-import Ember from 'ember';
+import { Currency } from '@busybusy/utils';
 
 module('Unit | Utility | Currency');
 
@@ -17,31 +18,31 @@ test('it works', function(assert) {
 test('codes', function(assert) {
 	const codes = Currency.codes();
 
-  assert.ok(Ember.isArray(codes), 'codes() returns an array');
+  assert.ok(isArray(codes), 'codes() returns an array');
 });
 
 test('code', function(assert) {
 	const code = Currency.code('USD');
 
-  assert.ok(!Ember.isNone(code) && typeof code === 'object', 'code returns an object');
-	assert.ok(!Ember.isNone(code) && code.get('symbol') === '$', 'code returns object with symbol');
+  assert.ok(!isNone(code) && typeof code === 'object', 'code returns an object');
+	assert.ok(!isNone(code) && code.get('symbol') === '$', 'code returns object with symbol');
 });
 
 test('country', function(assert) {
 	const country = Currency.country('USD');
 
-  assert.ok(Ember.isArray(country), 'country returns a list of countries');
+  assert.ok(isArray(country), 'country returns a list of countries');
 });
 
 test('number', function(assert) {
 	const code = Currency.number(840);
 
-  assert.ok(!Ember.isNone(code) && typeof code === 'object', 'code returns an object');
-	assert.ok(!Ember.isNone(code) && code.get('symbol') === '$', 'code returns object with symbol');
+  assert.ok(!isNone(code) && typeof code === 'object', 'code returns an object');
+	assert.ok(!isNone(code) && code.get('symbol') === '$', 'code returns object with symbol');
 });
 
 test('countries', function(assert) {
 	const countries = Currency.countries();
 
-  assert.ok(Ember.isArray(countries), 'countries returns a list of all countries');
+  assert.ok(isArray(countries), 'countries returns a list of all countries');
 });

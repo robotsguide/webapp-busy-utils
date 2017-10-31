@@ -1,5 +1,5 @@
 {
-  "name": "busy-utils",
+  "name": "@busybusy/utils",
   "version": "2.6.1",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [

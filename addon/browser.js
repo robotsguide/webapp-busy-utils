@@ -2,7 +2,7 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
+import EmberObject from '@ember/object';
 import assert from './assert';
 
 /***/

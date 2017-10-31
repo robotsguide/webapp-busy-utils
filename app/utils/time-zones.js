@@ -1,1 +1,1 @@
-export { default } from 'busy-utils/utils/time-zones';
+export { default } from '@busybusy/utils/utils/time-zones';

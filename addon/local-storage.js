@@ -2,8 +2,8 @@
  * @module Utils
  *
  */
-import EmberObject from 'ember-object';
-import { isNone } from 'ember-utils';
+import EmberObject from '@ember/object';
+import { isNone } from '@ember/utils';
 import assert from './assert';
 
 /***/
