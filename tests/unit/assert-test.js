@@ -16,7 +16,6 @@ test('it works', function(assert) {
   assert.ok(assertTools.isObject);
   assert.ok(assertTools.isMoment);
   assert.ok(assertTools.isUUID);
-  assert.ok(assertTools.isModel);
   assert.ok(assertTools.test);
   assert.ok(assertTools.throw);
 });
@@ -27,10 +26,10 @@ test('method::funcNumArgs', function(assert) {
 	assert.ok(assertTools.funcNumArgs([1], 2), 'test no assertion with 1 arg and asserting less than or equal to 2 args');
 
 	//test invalid assertions
-	//assert.throws(() => assertTools.funcNumArgs([1, 2], 1, true), /equal to 1/, 'test more args passed than allowed when equal');
-	//assert.throws(() => assertTools.funcNumArgs([1, 2], 1), /equal to 1/, 'test more args passed than allowed when less than');
+	assert.throws(() => assertTools.funcNumArgs([1, 2], 1, true), /equal to 1/, 'test more args passed than allowed when equal');
+	assert.throws(() => assertTools.funcNumArgs([1, 2], 1), /equal to 1/, 'test more args passed than allowed when less than');
 
-	//assert.throws(() => assertTools.funcNumArgs([1], 2, true), /equal to 2/, 'test less args passed than allowed when equal');
+	assert.throws(() => assertTools.funcNumArgs([1], 2, true), /equal to 2/, 'test less args passed than allowed when equal');
 });
 
 test('method::isString', function(assert) {
@@ -38,7 +37,7 @@ test('method::isString', function(assert) {
 	assert.ok(assertTools.isString('test'), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isString(12), /expected a string/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isString(12), /expected a string/, 'test an invalid input passed in');
 });
 
 test('method::isArray', function(assert) {
@@ -46,7 +45,7 @@ test('method::isArray', function(assert) {
 	assert.ok(assertTools.isArray([]), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isArray({}), /expected an array/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isArray({}), /expected an array/, 'test an invalid input passed in');
 });
 
 test('method::isNumber', function(assert) {
@@ -54,7 +53,7 @@ test('method::isNumber', function(assert) {
 	assert.ok(assertTools.isNumber(12), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isNumber('12'), /expected a number/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isNumber('12'), /expected a number/, 'test an invalid input passed in');
 });
 
 test('method::isInteger', function(assert) {
@@ -62,7 +61,7 @@ test('method::isInteger', function(assert) {
 	assert.ok(assertTools.isInteger(12), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isInteger(12.5), /expected an integer/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isInteger(12.5), /expected an integer/, 'test an invalid input passed in');
 });
 
 test('method::isBoolean', function(assert) {
@@ -70,7 +69,7 @@ test('method::isBoolean', function(assert) {
 	assert.ok(assertTools.isBoolean(true), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isBoolean(1), /expected a boolean/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isBoolean(1), /expected a boolean/, 'test an invalid input passed in');
 });
 
 test('method::isObject', function(assert) {
@@ -78,7 +77,7 @@ test('method::isObject', function(assert) {
 	assert.ok(assertTools.isObject({}), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isObject([]), /expected an object/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isObject([]), /expected an object/, 'test an invalid input passed in');
 });
 
 test('method::isMoment', function(assert) {
@@ -86,7 +85,7 @@ test('method::isMoment', function(assert) {
 	assert.ok(assertTools.isMoment(moment()), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isMoment({}), /expected a Moment/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isMoment({}), /expected a Moment/, 'test an invalid input passed in');
 });
 
 test('method::isUUID', function(assert) {
@@ -94,18 +93,7 @@ test('method::isUUID', function(assert) {
 	assert.ok(assertTools.isUUID(UUID.generate()), 'test a valid input passed in');
 
 	// test invalid assertions
-	//assert.throws(() => assertTools.isUUID('1233-123123-3123-234'), /expected a UUID/, 'test an invalid input passed in');
-});
-
-test('method::isModel', function(assert) {
-	// test valid assertions
-	assert.ok(assertTools.isModel({test: "test"}), 'test a valid input passed in');
-
-	// test model promise
-	//assert.ok(assertTools.isModel(Ember.ObjectProxy.create({content: DS.Model._create()})), 'test a valid input passed in');
-
-	// test invalid assertions
-	//assert.throws(() => assertTools.isModel({}), /expected a DS.Model/, 'test an invalid input passed in');
+	assert.throws(() => assertTools.isUUID('1233-123123-3123-234'), /expected a UUID/, 'test an invalid input passed in');
 });
 
 test('method::test', function(assert) {

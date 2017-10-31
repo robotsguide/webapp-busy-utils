@@ -1,5 +1,5 @@
 /**
- * busy-utils module
+ * @busybusy/utils module
  *
  */
 
