@@ -3,5 +3,6 @@
 module.exports = {
 	coverageEnvVar: 'COVERAGE',
 	reporters: ['lcov'],
-	useBabelInstrumenter: false
+	useBabelInstrumenter: false,
+	excludes: ['./tests/**/*', './config/**/*']
 };
