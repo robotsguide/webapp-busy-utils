@@ -4,15 +4,20 @@
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon",
-    "busybusy"
+		"busybusy",
+    "@busybusy",
+		"@busybusy/utils"
   ],
   "license": "MIT",
   "author": "busy inc.",
   "directories": {
-    "doc": "doc",
+    "lib": "lib",
     "test": "tests"
   },
-  "repository": "git@github.com:busybusy/webapp-busy-utils.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/busybusy/webapp-busy-utils.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -50,5 +55,10 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/busybusy/webapp-busy-utils/issues"
+  },
+  "homepage": "https://github.com/busybusy/webapp-busy-utils#readme",
+  "main": "index.js"
 }
