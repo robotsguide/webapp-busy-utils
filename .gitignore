@@ -17,6 +17,7 @@ npm-debug.log*
 yarn-error.log
 testem.log
 lcov.info
+*.bak
 
 # ember-try
 .node_modules.ember-try/
