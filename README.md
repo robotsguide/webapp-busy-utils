@@ -17,6 +17,9 @@
 Installation
 ------------------------------------------------------------------------------
 
+WARNING
+This Package is deprecated! Please use @busy-web/utils going forward.
+
 Install this addon using ember-cli
 ```
 ember install @busybusy/utils
